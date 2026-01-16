@@ -112,91 +112,157 @@ Old method:
 
 ---
 
-## Git Commands 
+## Git Commands
 
 ### Create README File
-bash
+```bash
 echo "# github-project" >> README.md
+```
+
 Creates a README.md file and adds a basic project description used by GitHub.
 
+---
+
 ### Initialize Git Repository
-bash
+```bash
 git init
+```
+
 Turns the current directory into a Git repository and starts tracking changes.
 
+---
+
 ### Add File to Tracking
-bash
+```bash
 git add README.md
+```
+
 Marks the file to be included in the next commit.
 
+---
+
 ### Save Snapshot (Commit)
-bash
+```bash
 git commit -m "first commit"
+```
+
 Saves the current project state into Git history.
 
+---
+
 ### Rename Main Branch
-bash
+```bash
 git branch -M main
+```
+
 Sets the default branch name to main.
 
+---
+
 ### Connect to Remote Repository
-bash
+```bash
 git remote add origin <repository-url>
+```
+
 Links the local repository to a remote Git server.
 
+---
+
 ### Push to Remote
-bash
+```bash
 git push -u origin main
+```
+
 Uploads the local commits to the remote repository and sets the default push branch.
 
+---
+
 ### Check Project State
-bash
+```bash
 git status
+```
+
 Displays tracked, modified, staged, and untracked files.
 
+---
+
 ### Add All Files
-bash
+```bash
 git add .
+```
+
 Stages all current changes in the project directory.
 
+---
+
 ### Commit New Changes
-bash
+```bash
 git commit -m "adding docker files"
+```
+
 Saves the newly staged changes into the project history.
 
+---
+
 ### Push Updates
-bash
+```bash
 git push
+```
+
 Sends the latest commits to the remote repository.
 
+---
+
 ### Create and Switch Branch
-bash
+```bash
 git checkout -b dev
+```
+
 Creates a new branch named dev and switches to it.
 
+---
+
 ### List Branches
-bash
+```bash
 git branch
+```
+
 Shows all local branches and highlights the active one.
 
+---
+
 ### Push Branch to Remote
-bash
+```bash
 git push --set-upstream origin dev
+```
+
 Uploads the dev branch and links it to the remote repository.
 
+---
+
 ### Switch Branch
-bash
+```bash
 git checkout main
+```
+
 Switches the working directory to the main branch.
 
+---
+
 ### Delete Local Branch
-bash
+```bash
 git branch -d testing
+```
+
 Removes a local branch from the repository.
 
+---
+
 ### .gitignore
-bash
+```bash
 touch .gitignore
+```
+
 Creates a file that defines which files Git should ignore and never track.
 
 ---
