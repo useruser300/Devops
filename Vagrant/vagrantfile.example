@@ -1,0 +1,62 @@
+Vagrant.configure("2") do |config|
+
+  # BOX
+  # Base image used as immutable input.
+  # Determines OS version, provider compatibility, and boot behavior.
+  # Boxes are cached locally and NOT removed on destroy.
+  config.vm.box = "ubuntu/xenial64"   # VirtualBox-compatible box
+  # config.vm.box = "generic/centos7" # Alternative box (provider-dependent)
+  # config.vm.box_check_update = false # Disable automatic box updates for reproducibility
+
+  # PROVIDER
+  # Provider executes the declared environment.
+  # Resource changes here usually require reload.
+  config.vm.provider "virtualbox" do |vb|
+    # vb.gui = true                 # GUI access; not required for headless workflows
+    vb.memory = "2048"              # VM RAM allocation (applied on reload)
+    # remains_running = false       # Docker-specific behavior (not used for VirtualBox)
+  end
+
+  # NETWORK
+  # Networking is abstracted to remain provider-agnostic.
+  # Reload required after network changes.
+  
+  # Port forwarding: exposes guest services on host
+  # config.vm.network "forwarded_port", guest: 80, host: 9090
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+
+  # Private network: static IP for stable access and multi-service setups
+  config.vm.network "private_network", ip: "192.168.56.20"
+
+  # Public network: bridged networking (use with caution)
+  # config.vm.network "public_network"
+
+  #------------------------ PROVISION ------------------------#
+  # Provisioning runs on first creation or when explicitly forced.
+  # Used for initial setup, NOT continuous configuration enforcement.
+
+  # Inline shell provisioning (simple, tightly coupled)
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt-get update
+  #   apt-get install -y apache2
+  # SHELL
+
+  # Script variable provisioning (cleaner, still inline)
+  # $script = <<-SCRIPT
+  #   apt-get update
+  #   apt-get install -y apache2
+  # SCRIPT
+  # config.vm.provision "shell", inline: $script
+
+  # External script provisioning (recommended)
+  # Decouples logic and improves reusability
+  # config.vm.provision "shell", path: "script.sh"
+  #------------------------ PROVISION ------------------------#
+
+  # DIR SYNC
+  # Bidirectional sync between host and guest.
+  # File changes and deletions propagate both ways.
+  # Suitable for development, not production data.
+  # config.vm.synced_folder "../data", "/vagrant_data"
+
+end
