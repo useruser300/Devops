@@ -78,22 +78,10 @@ This reduces “it works on my machine” problems because:
 ---
 
 ## Practical Workflow: Build → Test → Tag → Push
-
-This is the **standard daily workflow** when working with Docker images.
-
-### Build the image
-```bash
-docker build -t YOUR_DOCKER_USERNAME/docker-quickstart .
-
-
----
-
-## Practical Workflow: Build → Test → Tag → Push
 This is the **standard daily workflow** when working with Docker images.
 
 
 ### Build the image
-
 ```bash
 docker build -t YOUR_DOCKER_USERNAME/docker-quickstart .
 ```
@@ -103,14 +91,12 @@ docker build -t YOUR_DOCKER_USERNAME/docker-quickstart .
 * Keep the dot `.` at the end — it tells Docker where the build context is and where to find the Dockerfile.
 
 ### List local images
-
 ```bash
 docker images
 ```
 ---
 
 ## Run the image to test it
-
 ```bash
 docker run -d -p 8080:8080 YOUR_DOCKER_USERNAME/docker-quickstart
 ```
@@ -131,7 +117,6 @@ Then test it in your browser:
 Tags are how you version your images.
 
 ### Add a version tag
-
 ```bash
 docker tag YOUR_DOCKER_USERNAME/docker-quickstart YOUR_DOCKER_USERNAME/docker-quickstart:1.0
 ```
@@ -144,7 +129,6 @@ Meaning:
 ---
 
 ## Push to Docker Hub
-
 ```bash
 docker push YOUR_DOCKER_USERNAME/docker-quickstart:1.0
 ```
