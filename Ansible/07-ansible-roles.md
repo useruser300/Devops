@@ -153,6 +153,36 @@ Key concept:
 
 A handler is basically a task — like for example: “As soon as Apache gets installed, I want you to start Apache.”
 
+This example shows how Ansible handlers are used to restart a service only when a change occurs.
+Apache is restarted only if the configuration file is modified, avoiding unnecessary restarts.
+
+
+```yaml
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    # Uses the yum module (RHEL-based systems: CentOS, Rocky, Alma, RHEL)
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: present
+
+    - name: Deploy Apache config
+      copy:
+        src: httpd.conf            # Copy config file from control node
+        dest: /etc/httpd/conf/httpd.conf
+      notify: restart apache      # Notify handler ONLY if the file changes
+
+  handlers:
+    # Handler runs only when notified
+    - name: restart apache
+      service:
+        name: httpd
+        state: restarted           # Restart Apache after config change
+```
+
 ---
 
 ### `templates/`
