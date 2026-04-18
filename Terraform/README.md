@@ -9,7 +9,7 @@ The goal of this repo is to build a strong practical and conceptual understandin
 # Current Content
 
 ## Notes & Concepts
-- `terraform-fundamentals.md`  
+- `terraform-basics.md`  
   Core Terraform fundamentals, workflows, state, providers, dependencies, and IaC basics.
 
 - `terraform-concepts-and-lifecycle.md`  
