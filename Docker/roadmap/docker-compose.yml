@@ -1,0 +1,25 @@
+version: '3'
+services:
+  database:
+    image: postgres:13
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  api:
+    build: ./api
+    depends_on:
+      - database
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/postgres
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+
+volumes:
+  db-data:
