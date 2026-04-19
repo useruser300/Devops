@@ -30,6 +30,21 @@ The goal is to understand how Terraform can provision cloud infrastructure in a 
 
 ---
 
+# Lab Guide and Official References
+
+The full step-by-step lab explanation is available in:
+
+- `terraform-lab-hands-on.md`
+
+Official references used in this project:
+
+- [Terraform AWS Getting Started Tutorial](https://developer.hashicorp.com/terraform/tutorials/aws-get-started)
+- [Terraform AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+
+These references are useful for understanding resource arguments, configuration examples, and Terraform best practices.
+
+---
+
 # Network Design
 
 The network flow is:
