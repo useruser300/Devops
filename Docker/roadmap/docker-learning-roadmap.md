@@ -418,7 +418,7 @@ Docker Compose provides a declarative configuration file for multi-container set
 
 ---
 
-### Example `docker-compose.yml` (preserved exactly)
+### Example `docker-compose.yml`
 
 ```yaml
 version: '3'
