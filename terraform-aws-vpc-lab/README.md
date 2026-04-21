@@ -4,6 +4,10 @@ This repository contains a hands-on Terraform lab for building a basic AWS infra
 
 The project uses Terraform to create the infrastructure automatically instead of creating everything manually through the AWS Console.
 
+An additional refactored version of this project was also built using **modules and variables**, and it is available in:
+
+- `./existing-project-refactored-with-modules-and-variables`
+
 ## Architecture Diagram
 
 ![Terraform Lab Diagram](images/diagram.png)
