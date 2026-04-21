@@ -6,6 +6,11 @@ variable "vpc_cidr" {
   type = string
 }
 
+variable "vpc_name" {
+  description = "vpc name"
+  type        = string
+}
+
 variable "public_subnet_cidr" {
   type = string
 }
@@ -24,3 +29,4 @@ variable "vm_type" {
   description = "Instance type for the EC2 instances"
   type        = string
 }
+

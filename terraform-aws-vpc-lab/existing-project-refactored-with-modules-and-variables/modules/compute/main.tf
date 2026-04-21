@@ -12,7 +12,7 @@ data "aws_ami" "linux" {
 resource "aws_security_group" "private_ec2_sg" {
   name        = "private-ec2-sg"
   description = "Security group for private EC2 instance"
-  vpc_id      = var.vpc_cidr
+  vpc_id      = var.vpc_id
 
   egress {
     description = "Allow all outbound traffic"
@@ -33,7 +33,7 @@ resource "aws_security_group" "private_ec2_sg" {
 resource "aws_instance" "private_ec2" {
     ami = data.aws_ami.linux.id
     instance_type = var.vm_type
-    subnet_id = var.private_subnet_cidr
+    subnet_id = var.private_subnet
     security_groups = [aws_security_group.private_ec2_sg.id]
     associate_public_ip_address = false
     tags = {
